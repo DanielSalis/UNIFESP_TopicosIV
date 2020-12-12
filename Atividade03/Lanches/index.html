@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" href="../style.css">
+  <title>Document</title>
+</head>
+<body>
+      <nav class="nav-container">
+        <div class="nav-wrapper">
+          <a href="../index.html" class="brand-logo"><i>Pizzaria Xuxu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="../Pizzas/index.html">Pizzas</a></li>
+            <li><a href="./index.html">Lanches</a></li>
+            <li><a href="../Bebidas/index.html">Saladas</a></li>
+            <li><a href="../Contato/indelx.html">Contato</a></li>
+          </ul>
+        </div>
+      </nav>
+
+            <div id="pizza-container" class="pizza-container"> 
+            </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script>
+              const Lanches = [
+                {
+                  nome: 'Burger de Frango',
+                  ingredientes: ['Pão', 'Frango', 'Tomate', 'Alface'],
+                  price: 39.90,
+                  path: 'burger_chicken.png'
+                },
+                {
+                  nome: 'Burger Deluxe',
+                  ingredientes: ['Pão', 'Burger de 180g', 'Mandioca Frita', 'Alface', 'Molho especial'],
+                  price: 49.90,
+                  path: 'burger_deluxe.png'
+                },
+                {
+                  nome: 'Burger vegetariano',
+                  ingredientes: ['Folhas verdes', 'Queijo', 'Vai na minha(não escolha esse)'],
+                  price: 59.90,
+                  path: 'burger_veggie.png'
+                },
+              ]
+
+              const PizzaContainer = document.getElementById('pizza-container');
+
+              Lanches.forEach(item => {
+                const DivCardSmall = document.createElement('div');
+                DivCardSmall.className = "card small pizza-item";
+
+                const DivCardImage = document.createElement('div');
+                DivCardImage.className = "card-image waves-effect waves-block waves-light";
+                const Img = document.createElement('img');
+                Img.className = "activator";
+                Img.src = "../assets/products/" + item.path;
+                //append
+                DivCardSmall.appendChild(DivCardImage);
+                DivCardImage.appendChild(Img);
+
+                const DivCardContent = document.createElement('div');
+                DivCardContent.className = "card-content";
+                const SpanCardTitle = document.createElement('span');
+                SpanCardTitle.className = "card-title activator grey-text text-darken-4";
+                SpanCardTitle.innerText = item.nome;
+                const I = document.createElement('i');
+                I.className = "material-icons right";
+                I.innerText = "ingredientes";
+                const ParagraphPrice = document.createElement('p');
+                ParagraphPrice.innerText = "R$" + item.price;
+                //append
+                DivCardSmall.appendChild(DivCardContent);
+                DivCardContent.appendChild(SpanCardTitle);
+                SpanCardTitle.appendChild(I);
+                DivCardContent.appendChild(ParagraphPrice);
+
+
+                const DivCardReveal = document.createElement('div');
+                DivCardReveal.className = "card-reveal";
+                const SpanCardTitleGray = document.createElement('span');
+                SpanCardTitleGray.className = "card-title grey-text text-darken-4";
+                SpanCardTitleGray.innerText = item.nome;
+                const IClose = document.createElement('i');
+                IClose.className = "material-icons right";
+                IClose.innerText = "X";
+                Paragraph = document.createElement('p');
+                Paragraph.innerText = "Esta Pizza contém:";
+                Ul = document.createElement('ul');
+                Ul.className = "collection";
+                item.ingredientes.forEach(subitem => {
+                  let li = document.createElement('li');
+                  li.className = "collection-item";
+                  li.innerText = subitem;
+                  Ul.appendChild(li);
+                })
+                //append
+                DivCardSmall.appendChild(DivCardReveal);
+                DivCardReveal.appendChild(SpanCardTitleGray);
+                DivCardReveal.appendChild(Paragraph);
+                DivCardReveal.appendChild(Ul);
+                SpanCardTitleGray.appendChild(IClose);
+
+                PizzaContainer.appendChild(DivCardSmall);
+              })
+
+            </script>
+</body>
+</html>
