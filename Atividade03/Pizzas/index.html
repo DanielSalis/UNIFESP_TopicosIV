@@ -19,5 +19,132 @@
         </ul>
       </div>
     </nav>
-</body>
+    <div class="main-container">
+      <div id="pizza-container" class="pizza-container">
+          <div class="card small pizza-item">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="../assets/products/pizza_deluxe.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Pizza 01<i
+                  class="material-icons right">ingredientes</i></span>
+              <p>R$ 39.90</p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Pizza 01<i class="material-icons right">X</i></span>
+              <p>Esta Pizza contém:</p>
+              <ul class="collection">
+                <li class="collection-item">Presunto</li>
+                <li class="collection-item">Pouco queijo</li>
+                <li class="collection-item">Tomate</li>
+                <li class="collection-item">Azeitona</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      const pizzas = [
+        {
+          nome:'Pizza De Presunto',
+          ingredientes:['Presunto','Queijo','Tomate','Azeitona'],
+          price:39.90,
+          path:'pizza_bbq.png'
+        },
+        {
+          nome: 'Pizza Portuguesa',
+          ingredientes: ['Presunto', 'Ovos', 'Tomate', 'Pimenta','Azeitona','Rúcula'],
+          price: 49.90,
+          path: 'pizza_deluxe.png'
+        },
+        {
+          nome: 'Pizza de Peperone',
+          ingredientes: ['Peperone', 'Queijo'],
+          price: 59.90,
+          path: 'pizza_pep.png'
+        },
+                {
+          nome: 'Pizza De Presunto',
+          ingredientes: ['Presunto', 'Queijo', 'Tomate', 'Azeitona'],
+          price: 39.90,
+          path: 'pizza_bbq.png'
+        },
+        {
+          nome: 'Pizza Portuguesa',
+          ingredientes: ['Presunto', 'Ovos', 'Tomate', 'Pimenta', 'Azeitona', 'Rúcula'],
+          price: 49.90,
+          path: 'pizza_deluxe.png'
+        },
+        {
+          nome: 'Pizza de Peperone',
+          ingredientes: ['Peperone', 'Queijo'],
+          price: 59.90,
+          path: 'pizza_pep.png'
+        }
+        
+      ]
+
+      const PizzaContainer = document.getElementById('pizza-container');
+
+      pizzas.forEach(item=>{
+        const DivCardSmall = document.createElement('div');
+        DivCardSmall.className="card small pizza-item";
+
+        const DivCardImage = document.createElement('div');
+        DivCardImage.className ="card-image waves-effect waves-block waves-light";
+        const Img = document.createElement('img');
+        Img.className="activator";
+        Img.src="../assets/products/" + item.path;
+        //append
+        DivCardSmall.appendChild(DivCardImage);
+        DivCardImage.appendChild(Img);
+
+        const DivCardContent = document.createElement('div');
+        DivCardContent.className="card-content";
+        const SpanCardTitle = document.createElement('span');
+        SpanCardTitle.className="card-title activator grey-text text-darken-4";
+        SpanCardTitle.innerText=item.nome;
+        const I = document.createElement('i');
+        I.className = "material-icons right";
+        I.innerText = "ingredientes";
+        const ParagraphPrice=document.createElement('p');
+        ParagraphPrice.innerText="R$" + item.price;
+        //append
+        DivCardSmall.appendChild(DivCardContent);
+        DivCardContent.appendChild(SpanCardTitle);
+        SpanCardTitle.appendChild(I);
+        DivCardContent.appendChild(ParagraphPrice);
+
+
+        const DivCardReveal = document.createElement('div');
+        DivCardReveal.className ="card-reveal";
+        const SpanCardTitleGray = document.createElement('span');
+        SpanCardTitleGray.className="card-title grey-text text-darken-4";
+        SpanCardTitleGray.innerText=item.nome;
+        const IClose = document.createElement('i');
+        IClose.className="material-icons right";
+        IClose.innerText="X";
+        Paragraph = document.createElement('p');
+        Paragraph.innerText="Esta Pizza contém:";
+        Ul = document.createElement('ul');
+        Ul.className="collection";
+        item.ingredientes.forEach(subitem=>{
+          let li = document.createElement('li');
+          li.className="collection-item";
+          li.innerText = subitem;
+          Ul.appendChild(li);
+        })
+        //append
+        DivCardSmall.appendChild(DivCardReveal);
+        DivCardReveal.appendChild(SpanCardTitleGray);
+        DivCardReveal.appendChild(Paragraph);
+        DivCardReveal.appendChild(Ul);
+        SpanCardTitleGray.appendChild(IClose);
+
+        PizzaContainer.appendChild(DivCardSmall);
+      })
+
+    </script>
+  </body>
 </html>
