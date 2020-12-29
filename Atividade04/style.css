@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+body{
+    margin-top: 50px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+form{
+    color: #fff !important
+}
+
+input{
+    color: #fff !important
+}
+
+textarea{
+    color: #fff !important;
+}
+
+textarea{
+    border: 1px solid #9e9e9e !important;
+    min-height: 6rem !important;
+}
