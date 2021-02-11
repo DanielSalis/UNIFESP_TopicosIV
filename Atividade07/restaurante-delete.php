@@ -12,7 +12,7 @@
     <div id="root">
     <nav class="header-restaurante blue lighten-2">
     <div class="nav-wrapper">
-        <a href="" class="brand-logo">Admin - Restaurante - cadastrar</a>
+        <a href="" class="brand-logo">Admin - Restaurante - Deletar</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="./restaurante-cadastro.php">Cadastro</a></li>
         <li><a href="">Atualizar</a></li>
@@ -21,27 +21,11 @@
     </div>
     </nav>
     <div class="row">
-    <form class="col s12" action="restauranteApi.php" method="post">
+    <form class="col s12" action="./restauranteApi-delete.php" method="post">
       <div class="row">
         <div class="input-field col s6">
           <input id="first_name" name="first_name" type="text" class="validate">
           <label for="first_name">Nome</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="Telefone" name="telefone" type="text" class="validate">
-          <label for="Telefone">Telefone</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="endereco" name="endereco" type="text" class="validate">
-          <label for="endereco">Endereço </label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input id="Whatsapp" name="whatsapp" type="text" class="validate">
-          <label for="Whatsapp">Whatsapp</label>
         </div>
       </div>
       <input type="submit" name="submit" id="input-submit" class="waves-effect waves-light btn blue lighten-2">
